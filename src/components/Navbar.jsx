@@ -1,39 +1,43 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  let searchword = useRef("");
-  let [title , setTitle] = useState("")
-
+  let [inputValue , setInputValue]= useState("")
+  
   const handleSearch = () => {
-    fetch(`https://www.omdbapi.com/?t=${searchword.current.value}&apikey=2b393686`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((d) => {
-        console.log(d);
-        setTitle(d)
-      });
+      let MovieTitle = localStorage.setItem("movieTitle",inputValue)
+      console.log("title stored in localstotage"+ MovieTitle);
   };
   return (
-    <nav>     
+    <nav>
       <div id="logo">
         <Link to="/">
           <h1> FlixNext </h1>
         </Link>
       </div>
 
-      <div id="search-bar" >
-        <input type="search" placeholder="Search for movies" ref={searchword} />
-        <i class="bx bx-search"></i>
-        <button type="submit" onClick={() => handleSearch()}>Search</button>
-
+      <div id="search-bar">
+         <form onSubmit={handleSearch}>
+              <input type="search" placeholder="Search for movies" value={inputValue}
+              onChange={(e)=>{setInputValue(e.target.value)}}/>
+              
+              <button type="submit" > Search </button>
+              
+              <button type="submit" id="search-icon">
+                <i class="bx bx-search-alt-2"></i>
+              </button>
+           </form>
       </div>
 
       <div id="fav-movie">
         <Link to="/favmovie"> Favorites </Link>
-       
       </div>
+
+      <button id="fav-icon">
+        <Link to="/favmovie">
+          <i class="bx bx-home-heart"></i>
+        </Link>
+      </button>
     </nav>
   );
 };

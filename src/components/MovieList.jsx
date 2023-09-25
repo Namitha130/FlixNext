@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import ToasterUi from 'toaster-ui';
 
 const MovieList = () => {
-
+    // var [favMovies , setFavMovies] =useState([])
    var [movies, setMovies] = useState([]) 
    let [page , setPage] = useState("1")
    let [favId, setFavId]= useState([]);
@@ -33,22 +33,15 @@ const MovieList = () => {
         setFavId(fav.map((m)=>{return m.id}));
                   },[altered]);
 
-    let add = (movie)=>{ 
-       
+    let add = (movie)=>{    
         let fav =  JSON.parse(localStorage.getItem("fav"));
         fav.push(movie);
         toaster.addToast("Added to Favorites");
         localStorage.setItem("fav" , JSON.stringify(fav));
         setAltered(altered+1);
+        console.log(favId);
     }
 
-    // let removeMovie = (id)=>{ 
-    //     alert("remove btn working");
-    //     let fav =  JSON.parse(localStorage.getItem("fav"));
-    //     fav = fav.filter((m)=>{return m.id !== id })
-    //     localStorage.setItem("fav" , JSON.stringify(fav));
-    //     setAltered(altered+1);
-    // }
 
     return ( 
     <div>
@@ -57,18 +50,22 @@ const MovieList = () => {
                 return(
                 <div className="movie">  
                     
-                    <button className="add-btn" onClick={()=>{add(m)} }> 
-                        <i class='bx bx-heart'></i>
-                    </button>
-                    
+                        <button className="add-btn" onClick={()=>{add(m)} }> 
+                                <i class='bx bx-heart'></i>
+                        </button>
+
                     <img src={m.Poster} alt="poster" width="200px" height="250px" />
                     <h2>{m.Title}</h2>
                     <p> <b>Year : </b>{m.Year}</p>                   
                 </div>
                 )
-            })}             
+            })}   
+                    
         </div>
-        <Pagination sendToParent={receivedFromChild}/>
+        <footer>
+        <Pagination sendToParent={receivedFromChild}/>  
+        </footer>
+     
     </div>
     );
 }

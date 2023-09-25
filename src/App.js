@@ -2,11 +2,13 @@ import Home from "./components/Home";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Navbar from "./components/Navbar";
 import Favorites from "./components/Favorites";
+
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar/>
+        <Navbar/>    
+          
         <Routes> 
           <Route path="/" element={<Home/>}/>
           <Route path="/favmovie" element={<Favorites/>}/>

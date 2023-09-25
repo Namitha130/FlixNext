@@ -43,12 +43,22 @@ nav{
   color: white;
   border-radius: 4px;
   font-size: 18px;
-  padding: 10px 20px;
+  padding: 8px 20px;
   transition: 0.2s linear;
 }
 #fav-movie a:hover {
 border: 1px solid #a406cb;
   color: rgb(235, 3, 235)
+}
+
+#fav-icon { 
+  border: none;
+  background-color: transparent;
+  font-size: 30px; 
+  display: none;
+}
+#fav-icon  a i{
+  color: rgb(166, 19, 176);
 }
 /* -----------search bar CSS Style------------ */
 
@@ -59,26 +69,19 @@ border: 1px solid #a406cb;
   border-radius: 4px;
   font-size: 15px;
   padding-left: 40px;
-  background-color: #581768b0;
+  background-color: #87449855;
   color: rgb(212, 13, 235);
 }
 
 #search-bar input:focus {
   outline: none;
-  border: 1px solid #c624ee;
+  /* border: 1px solid #c624ee; */
+  border: solid 2px rgba(247, 239, 2, 0.763);
 }
 
 #search-bar input::placeholder {
-   color: rgba(255, 255, 255, 0.598);
-}
-
-#search-bar i{
-  font-size: 22px;
-  position: relative;
-  top: 5px;
-  left:450px;
-  color: rgba(237, 231, 231, 0.886);
-   z-index: 1000;
+   color: rgba(229, 142, 243, 0.598);
+   font-size: 17px;
 }
 
 #search-bar button{
@@ -87,13 +90,23 @@ border: 1px solid #a406cb;
   border: none;
   border-radius: 4px;
   font-size: 15px;
- margin-left: -100px;
- background-image: linear-gradient(to bottom, #480072c7, #530693);
- color: white;
+  margin-left: -100px;
+  /* background-image: linear-gradient(to bottom, #c6b6cfc7, #530693c5); */
+  background-color: #451551;
+  color: white;
 }
-
+#search-icon{
+  display: none;
+  color: rgba(246, 244, 247, 0.546);
+  position: relative;
+  right: 30px;
+  background-color: transparent;
+  font-size: 18px;
+  top: 5px;
+}
 #search-bar button:hover{
- border: 1px solid #c624ee;
+ /* border: 1px solid #c624ee; */
+ border: solid 2px rgba(247, 239, 2, 0.763);
 }
 
 /* ------------Movie Deatils css stying--------- */
@@ -110,7 +123,8 @@ border: 1px solid #a406cb;
   letter-spacing: 1px;
 }
 .Movie-Details section{
-    margin: 50px 250px;
+    width: 80%;
+    margin: 50px auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -131,14 +145,18 @@ border: 1px solid #a406cb;
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.5px;
+  padding: 0px 10px;
+  text-align: justify;
 }
 .movie-content p b{
   font-size: 20px;
   letter-spacing: 1px;
+  background-color: transparent;
+ 
 }
 #genre{
   background-color: rgba(198, 152, 231, 0.532);
-  width: 300px;
+  width: fit-content;
   border-radius: 5px;
 }
 
@@ -195,7 +213,6 @@ border: 1px solid #a406cb;
   border-radius: 20px;
   transition: 0.2s;
   text-align: center;
- padding-top: 10px;
 }
 
 .movie:hover{
@@ -218,6 +235,357 @@ border: 1px solid #a406cb;
   font-size: medium;
 }
 
+/* ----------------responsive tablet screen----------- */
+
+@media (max-width:1280px) {
+  nav{
+    padding: 20px 60px;
+  }
+
+  #logo a h1{
+    font-size: 25px;
+  }
+  
+  #search-bar input{
+    width: 350px;
+    height: 40px;
+    font-size: 15px;
+    padding-left: 20px;
+  }
+  #search-bar button{
+    width: 80px;
+    height: 40px;
+    font-size: 15px;
+    margin-left: -60px;
+   }
+
+ #fav-movie {
+    display: none;
+  }
+  #fav-icon {
+    display: block;
+  }
+  .Movie-Details h1 
+  {
+    font-size: 30px;
+  }
+  .movie-poster img{
+    width: 400px;
+    height: 450px;
+  }
+  .movie-content p{
+    font-size: 16px;
+  }
+  .movie-content p b{
+    font-size: 18px;
+  }
+  .movie-content{
+    padding-left: 20px;
+  }
+}
+@media (max-width:950px) 
+{
+  .Movie-Details h1 
+  {
+    font-size: 30px;
+  }
+  .movie-poster img{
+    width: 380px;
+    height: 420px;
+  }
+  .movie-content p{
+    font-size: 15px;
+  }
+  .movie-content p b{
+    font-size: 16px;
+  }
+  .movie-content{
+    padding-left: 15px;
+  }
+}
+  
+@media (max-width:890px) 
+{
+    nav{
+      padding: 20px 40px;
+    }
+    #logo a h1{
+    
+      letter-spacing: 3px;
+      font-size: 25px;
+    }
+
+    #search-bar input{
+      width: 250px;
+      height: 35px;
+      font-size: 10px;
+      padding-left: 15px;
+    }
+    #search-bar input::placeholder {
+      font-size: 15px;
+  }
+    #search-bar button{
+      width: 60px;
+      height: 35px;
+      font-size: 13px;
+      margin-left: -60px;
+    
+    }
+    .movielist-page {
+      width: 80vw;
+    }
+
+    .movie{
+      width: 200px;
+      height: 400px;
+    } 
+    .movie img{
+      width: 80%;
+      height: 250px;
+      border-radius: 20px;
+    }
+    .movie h2{
+      font-size: 15px;
+      margin-top: 6px;
+    }
+    .movie p{
+      font-size: 10px;
+      font-size: smaller;
+    }
+ 
+}
+
+@media (max-width:700px) {
+      nav{
+        padding: 15px 30px;
+      }
+      #logo a h1{
+        letter-spacing: 3px;
+        font-size: 20px;
+      }
+
+      #fav-icon { 
+        font-size: 25px; 
+      }
+
+      #search-bar input{
+        width: 250px;
+        height: 35px;
+        font-size: 8px;
+      }
+      #search-bar input::placeholder {
+        font-size: 12px;
+      }
+
+    .movielist-page {
+      width: 70vw;
+    }
+    .movie{
+      width: 220px;
+      height: 380px;
+    }
+
+}
+
+@media (max-width:630px) {
+    #logo a h1{
+      letter-spacing: 2px;
+      font-size: 15px;
+    }
+
+    #fav-icon { 
+      font-size: 25px; 
+    }
+
+    #search-bar input{
+      width: 250px;
+      height: 35px;
+
+    }
+    #search-bar button{
+      height: 30px;
+      font-size: 10px;
+    }
+    #search-bar input::placeholder {
+      font-size: 1px;
+    }
+
+    .movielist-page {
+      width: 70vw;
+      margin: 0px auto;
+    }
+    .movie{
+      width: 200px;
+      height: 280px;
+      padding: 0px 10px;
+    }
+    .movie img{
+    height: 200px;
+    }   
+}
+
+@media (max-width:540px) {
+    #logo a h1{
+        letter-spacing: 3px;
+        font-size: 12px;
+        margin-left: -10px;
+    
+      }
+    nav{
+      padding: 15px 20px;
+      height: 55px;
+    }
+    #fav-icon { 
+      font-size: 25px; 
+    }
+
+    #search-bar input{
+      width: 200px;
+      height: 30px;
+      font-size: 8px;
+    }
+    #search-bar input::placeholder {
+      font-size: 12px;
+    }
+    #search-bar button{
+        display:none;
+    }
+    #search-icon{
+      display: block;
+    }
+    .movielist-page {
+      width: 70vw;
+    }
+    .movie{
+      width: 220px;
+      height: 350px;
+      padding: 0px auto;
+    }
+    .movie img{
+      height: 200px;
+    }
+    .movie h2{
+      font-size: 20px;
+      margin-top: 0px;
+    }
+}
+
+@media (max-width:380px) {
+      #fav-icon { 
+        font-size: 20px; 
+      }
+      #logo a h1{
+        letter-spacing: 1px;
+        font-size: 10px;
+        margin-top: 5px;
+      }
+      #search-bar input{
+        width: 180px;
+        height: 35px;
+      }
+      #search-icon{
+        display: block;
+      }
+}
+
+@media (max-width:830px) 
+  {
+      .Movie-Details h1 
+      {
+        font-size: 28px;
+      }
+      .movie-poster img{
+        width: 300px;
+        height: 380px;   
+      }
+    .Movie-Details{
+      padding: 0px 100px;
+      justify-content: center;
+    }
+      .Movie-Details section{
+        text-align: center;
+        display: inline-block;
+        justify-content: center;
+        margin: 20px auto;
+        padding: 20px 20px;
+      }
+  } 
+
+  @media (max-width:720px) 
+  {
+      .Movie-Details h1 
+      {
+        font-size: 28px;
+      }
+      .movie-poster img{
+        width: 80%;
+        height: 380px;   
+      }
+      .Movie-Details{   
+        justify-content: center;
+      }
+      .Movie-Details section{
+        text-align: center;
+        display: inline-block;
+        justify-content: center;
+        margin: 20px 30px;
+        padding: 20px 10px;
+      }
+  }
+
+  @media (max-width:580px) 
+  {
+      .Movie-Details h1 
+      {
+        font-size: 28px;
+      }
+      .movie-poster img{
+        width: 80%;
+        height: 250px;   
+        padding-bottom: 30px;
+      }
+      .Movie-Details h1{ 
+        font-size: 25px;
+        padding: 10px 0px;
+        letter-spacing: 1.5px;
+      }
+      .Movie-Details h1 b{
+        letter-spacing: auto;
+      }
+      .movie-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        letter-spacing: 0; 
+      }
+
+      .Movie-Details section{
+        margin: 0px 30px;   
+         width: 300px;
+      }
+  } 
 
 
+  @media (max-width:480px){
+    .Movie-Details section{
+      margin-left: 10px; 
+       width: 280px;
+    }
 
+    .Movie-Details h1{ 
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width:395px){  
+    .Movie-Details section{
+      width: 260px;
+      margin: 0px auto ;
+      padding: 10px;
+      margin-left: -20px;
+    }
+
+    .Movie-Details h1{ 
+      font-size: 15px;
+      width: fit-content;
+    }
+  }

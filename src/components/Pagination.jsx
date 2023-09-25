@@ -9,7 +9,7 @@ function Pagination (props) {
         props.sendToParent(page)
     }
     return ( 
-        <div id="paginate">
+        <div>
            <ReactPaginate
                 previousLabel={'Previous'} //label representation 
                 nextLabel={"Next"}  
