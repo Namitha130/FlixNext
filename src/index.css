@@ -183,12 +183,12 @@ border: 1px solid #a406cb;
 }
 
 /* ---------Add to favorite list css stying (MoviList)--------- */
-.add-btn{
+.add-btn , .remove-btn{
   border: none;
   background-color: transparent;
 
 }
-.add-btn i{
+.add-btn i, .remove-btn i{
   font-size: 30px;
   color: rgba(239, 237, 238, 0.692);
 }
@@ -203,6 +203,7 @@ border: 1px solid #a406cb;
   justify-content: space-evenly;
   flex-wrap: wrap;
   row-gap: 20px;
+  color: white;
 }
 
 .movie{

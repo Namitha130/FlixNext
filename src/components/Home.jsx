@@ -27,7 +27,7 @@ function Home() {
       <div className="Home-page">    
       {title === null ?
            
-           <MovieList movies={movies}/>
+           <MovieList/>
            :
            <MovieDetails movies={movies}/>  
                   

@@ -6,7 +6,7 @@ let [favId, setFavId]= useState([]);
 
  useEffect(()=>{
     let fav = JSON.parse(localStorage.getItem("fav"));
-    setFavId(fav.map((m)=>{return m.id}));
+    setFavId(fav.map((m)=>{return m.imdbID}));
  },[altered]);
 
  let add = (movie)=>{ 
@@ -18,7 +18,7 @@ let [favId, setFavId]= useState([]);
 
  let removeMovie = (id)=>{ 
     let fav =  JSON.parse(localStorage.getItem("fav"));
-    fav = fav.filter((m)=>{return m.id !== id })
+    fav = fav.filter((m)=>{return m.imdbID !== id })
     localStorage.setItem("fav" , JSON.stringify(fav));
     setAltered(altered+1);
  }
@@ -40,8 +40,8 @@ let [favId, setFavId]= useState([]);
                <p> <b>Plot :</b> { movies.Plot} </p>
 
                {
-                 favId.includes(movies.id)? 
-                 <div id="remove-btn" onClick={()=>{removeMovie(movies.id)}}> <i class='bx bxs-heart' style={{color:"#df00ff"}}></i> <h6>Remove from Favorites</h6></div>
+                 favId.includes(movies.imdbID)? 
+                 <div id="remove-btn" onClick={()=>{removeMovie(movies.imdbID)}}> <i class='bx bxs-heart' style={{color:"#df00ff"}}></i> <h6>Remove from Favorites</h6></div>
                  :
                  <div id="add-btn" onClick={()=>{add(movies)} }> <i class='bx bx-heart'></i> <h6> Add to Favorites</h6> </div>
               }

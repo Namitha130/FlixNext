@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import ToasterUi from 'toaster-ui';
 
 const MovieList = () => {
-    // var [favMovies , setFavMovies] =useState([])
+
    var [movies, setMovies] = useState([]) 
    let [page , setPage] = useState("1")
    let [favId, setFavId]= useState([]);
@@ -30,7 +30,8 @@ const MovieList = () => {
     //! for  Adding movie  to FavoritesList 
     useEffect(()=>{
         let fav = JSON.parse(localStorage.getItem("fav")); 
-        setFavId(fav.map((m)=>{return m.id}));
+        setFavId(fav.map((m)=>{return m.imdbID
+                    }));
                   },[altered]);
 
     let add = (movie)=>{    
@@ -42,21 +43,43 @@ const MovieList = () => {
         console.log(favId);
     }
 
-
+    let removeMovie = (imdbID)=>{ 
+        console.log(window.location.pathname)
+        if(window.location.pathname === "/favmovie")
+        {
+            let fav =  JSON.parse(localStorage.getItem("fav"));
+            fav = fav.filter((m)=>{return m.imdbID !== imdbID })
+            localStorage.setItem("fav" , JSON.stringify(fav));
+            setAltered(altered+1);
+            toaster.addToast("Removed from Favorites");
+        }
+        else{
+            alert("please visit Favorite page to remove")
+        }
+        
+     }
+      
     return ( 
     <div>
         <div className="movielist-page">
             {movies.map((m)=>{
                 return(
                 <div className="movie">  
-                    
-                        <button className="add-btn" onClick={()=>{add(m)} }> 
-                                <i class='bx bx-heart'></i>
-                        </button>
+                    {
+                     favId.includes(m.imdbID)? 
+                     <button className="remove-btn" onClick={()=>{removeMovie(m.imdbID)}}>
+                        <i class='bx bxs-heart' style={{color:"#ba55d3"}}></i>
+                     </button>
+                     :
+                     <button className="add-btn" onClick={()=>{add(m)} }> 
+                        <i class='bx bx-heart'></i>
+                     </button>
+                    }
 
                     <img src={m.Poster} alt="poster" width="200px" height="250px" />
                     <h2>{m.Title}</h2>
-                    <p> <b>Year : </b>{m.Year}</p>                   
+                    <p> <b>Year : </b>{m.Year}</p>   
+                                
                 </div>
                 )
             })}   
