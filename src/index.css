@@ -1,13 +1,223 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
+*{
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: black;
+}
+/* ------------------nav tag css style----------- */
+.Home-page{
+  background-color: black;
+  color: white;
+}
+nav{
+  height: 80px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.984);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 100px;
+  position: sticky;
+  top: 0px;
+  z-index: 200;
+  border-bottom: 1px solid rgba(136, 5, 236, 0.447);
+}
+#logo a{
+  text-decoration: none;
+  color: white;
+}
+#logo a h1{
+  font-family: 'Bruno Ace SC', cursive;
+  letter-spacing: 4px;
+  font-size: 30px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#fav-movie a{
+  width: 80px;
+  height: 35px;
+  text-decoration: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 10px 20px;
+  transition: 0.2s linear;
 }
+#fav-movie a:hover {
+border: 1px solid #a406cb;
+  color: rgb(235, 3, 235)
+}
+/* -----------search bar CSS Style------------ */
+
+#search-bar input{
+  width: 550px;
+  height: 45px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  padding-left: 40px;
+  background-color: #581768b0;
+  color: rgb(212, 13, 235);
+}
+
+#search-bar input:focus {
+  outline: none;
+  border: 1px solid #c624ee;
+}
+
+#search-bar input::placeholder {
+   color: rgba(255, 255, 255, 0.598);
+}
+
+#search-bar i{
+  font-size: 22px;
+  position: relative;
+  top: 5px;
+  left:450px;
+  color: rgba(237, 231, 231, 0.886);
+   z-index: 1000;
+}
+
+#search-bar button{
+  width: 100px;
+  height: 45px;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+ margin-left: -100px;
+ background-image: linear-gradient(to bottom, #480072c7, #530693);
+ color: white;
+}
+
+#search-bar button:hover{
+ border: 1px solid #c624ee;
+}
+
+/* ------------Movie Deatils css stying--------- */
+
+.Movie-Details h1{
+  text-align: center;
+  font-size: 35px;
+  padding-top: 20px;
+  letter-spacing: 2.5px;
+}
+.Movie-Details h1 b{
+  font-weight: bold ;
+  color: #be71e5;
+  letter-spacing: 1px;
+}
+.Movie-Details section{
+    margin: 50px 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 30px;
+    height: auto;
+    border: 1px solid #b284be ;
+    border-radius: 30px;
+}
+.movie-poster img{
+  width: 450px;
+  height: 500px;
+  border-radius: 10px;
+}
+.movie-content{
+  padding-left: 25px;
+}
+.movie-content p {
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+.movie-content p b{
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+#genre{
+  background-color: rgba(198, 152, 231, 0.532);
+  width: 300px;
+  border-radius: 5px;
+}
+
+
+/* --------------Add to favorite CSS style (movie Deatails)------- */
+#add-btn , #remove-btn{
+    width: fit-content;   
+    border: 1px solid #ba55d3;
+    border-radius: 5px;
+    padding: 3px 8px;
+    margin: 10px 0px;
+}
+
+#remove-btn h6,#add-btn h6{
+  display: inline-block;
+  padding-left: 5px;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+#remove-btn i ,#add-btn i{
+  font-size: 18px;  
+  margin-top: 5px;
+}
+
+/* ---------Add to favorite list css stying (MoviList)--------- */
+.add-btn{
+  border: none;
+  background-color: transparent;
+
+}
+.add-btn i{
+  font-size: 30px;
+  color: rgba(239, 237, 238, 0.692);
+}
+
+/* ---------------movieList css style-------------- */
+.movielist-page{
+  width: 90vw;
+  height: auto;
+  margin: 0px auto;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+.movie{
+  width: 300px;
+  height: auto;
+  padding: 10px;
+  border: solid 1px rgba(147, 6, 235, 0.534);
+  border-radius: 20px;
+  transition: 0.2s;
+  text-align: center;
+ padding-top: 10px;
+}
+
+.movie:hover{
+  transform: scale(1.05);
+  border: solid 2px rgba(247, 239, 2, 0.763);
+  box-shadow: 3px 3px 5px rgba(226, 194, 10, 0.779)
+}
+
+.movie img{
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
+}
+.movie h2{
+  font-size: 20px;
+  margin-top: 10px;
+}
+.movie p{
+  font-size: 15px;
+  font-size: medium;
+}
+
+
+
+
